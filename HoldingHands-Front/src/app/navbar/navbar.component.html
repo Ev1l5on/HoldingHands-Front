@@ -21,11 +21,16 @@
         <a class="nav-link font-weight-bold text-uppercase mr-2" routerLink="/sobre">Sobre Nós</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link font-weight-bold text-uppercase mr-2" routerLink="/informações">Mais Informações</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link font-weight-bold text-uppercase mr-2" routerLink="/contato">Contato</a>
       </li>
     </ul>
 
-    
+    <div *ngIf='auth.verificaAdmin()' >
+      <button class="btn btn-info border border-secondary my-2 my-sm-0 mr-3" type="submit" routerLink='/cadastro-tema'>Cadastrar tema</button>      
+    </div>  
 
     <div *ngIf='auth.btnLogin()'>
       <button class="btn btn-info border border-secondary my-2 my-sm-0 mr-3" type="submit" routerLink="/login">Entrar</button>

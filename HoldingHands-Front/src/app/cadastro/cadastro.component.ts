@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { User } from '../model/User';
 import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
+import { UsuarioService } from '../service/usuario.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -22,6 +23,7 @@ export class CadastroComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    window.scroll(0, 0)
   }
 
   conferirSenha(event: any) {
@@ -30,6 +32,11 @@ export class CadastroComponent implements OnInit {
 
   cadastrar() {
     if (this.senha === this.user.senha) {
+      if(this.user.email === 'HoldingHands.PI@gmail.com'){
+        this.user.admin = true
+      } else { 
+        this.user.admin = false
+      }
       this.authService.cadastrar(this.user).subscribe((resp: User) => {
         this.user = resp
         this.router.navigate(["/login"])
