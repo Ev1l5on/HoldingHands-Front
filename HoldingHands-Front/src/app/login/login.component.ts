@@ -32,7 +32,9 @@ export class LoginComponent implements OnInit {
       environment.fotoUser = this.userLogin.foto
       environment.token = this.userLogin.token
       environment.admin = this.userLogin.admin
-      this.router.navigate(["/home"])
+      environment.senha = this.userLogin.senha
+      environment.usuario = this.userLogin.usuario
+      this.router.navigate(["/feed"])
   })
   }
 
